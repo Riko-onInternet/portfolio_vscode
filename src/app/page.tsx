@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LeftMenu } from "@/components/header/leftmenu";
 import { Header } from "@/components/header/header";
-
+import { Footer } from "@/components/footer/footer";
 export default function Home() {
   return (
     <>
@@ -103,6 +103,7 @@ export default function Home() {
           </footer>
         </div>
       </LeftMenu>
+      <Footer />
     </>
   );
 }

@@ -45,11 +45,11 @@ export const Header = () => {
   }
 
   return (
-    <header className="flex flex-row justify-between items-center p-2 px-3 h-[35px] bg-background">
+    <header className="flex flex-row justify-between items-center p-2 px-4 h-[35px] bg-[var(--background)] border-b border-[var(--border)]">
       <div className="w-[52px] h-[20px]">
         <LogoIcon fill="var(--primary)" className="h-full" />
       </div>
-      <p className="text-xs">Andrea De Laurentis - Portfolio</p>
+      <p className="text-xs text-primary">Andrea De Laurentis - Portfolio</p>
       <div className="h-full flex items-center gap-2">
         <button
           className="bg-yellow-500 size-3 rounded-full cursor-pointer"
