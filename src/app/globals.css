@@ -6,11 +6,14 @@
   --primary: #fdf500;
   --secondary: #37ebf3;
   --background: #1b1c22;
+  --background-active: #37ebf34f;
+  --background-inactive: #37ebf321;
   --background-secondary: #272932;
   --foreground: #e7e7e7;
   --foreground-secondary: #1c212b;
 
   --border: #27293261;
+  --border-active: #2cf6b3;
 }
 
 body {
@@ -27,4 +30,8 @@ body {
 
 #app.app-hide {
   transform: translateY(calc(100dvh - 35px));
+}
+
+.border-r-\[var\(--border-active\)\] {
+  border-right: 1px solid var(--border-active);
 }

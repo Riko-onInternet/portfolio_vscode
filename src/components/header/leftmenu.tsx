@@ -126,7 +126,7 @@ export const LeftMenu = ({ children }: { children: React.ReactNode }) => {
           {LinkMenuIcon.slice(0, 5).map((item, index) => (
             <li key={index} className="">
               <Link href={item.href} className={`flex items-center justify-start gap-1.5 px-4 py-1 ${pathname === item.href ? "bg-[var(--background-secondary)]" : ""}`}>
-                {item.iconFile}
+                {item.iconFile }
                 <p className="text-[13px] leading-none text-[var(--secondary)]">{item.filename}</p>
               </Link>
             </li>
@@ -137,6 +137,16 @@ export const LeftMenu = ({ children }: { children: React.ReactNode }) => {
       {/* Menu open file */}
       <div className="w-[90%] lg:w-full bg-[var(--background-secondary)]">
         <div className="w-full h-[35px]">
+          <ul className="flex items-center justify-start h-full">
+            {LinkMenuIcon.slice(0, 5).map((item, index) => (
+              <li key={index} className="h-full">
+                <Link href={item.href} className={`flex items-center justify-start h-full bg-[var(--background-inactive)] border-b border-b-transparent gap-1.5 px-4 py-1 ${pathname === item.href ? "!bg-[var(--background-active)] !border-b-[var(--border-active)]" : ""}`}>
+                  {item.iconFile}
+                  <p className="text-[13px] leading-none text-[var(--primary)]">{item.filename}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
         {children}
       </div>
