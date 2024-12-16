@@ -7,37 +7,50 @@ import { Tooltip } from "@nextui-org/react";
 
 // Icons
 import { Files } from "./icons/files";
-import { Code, MessageCircle, Github, CircleUserRound, Settings } from "lucide-react";
-import { FaHtml5 } from "react-icons/fa6";
+import { Code, MessageCircle, Github, CircleUserRound, Settings, Braces } from "lucide-react";
+import { FaHtml5, FaReact, FaCss3 } from "react-icons/fa6";
+import { MdInfo } from "react-icons/md";
 
 const LinkMenuIcon = [
   {
     href: "/",
     icon: Files,
     label: "Esplora risorse",
-  },
-  {
-    href: "/github",
-    icon: Github,
-    label: "Github",
+    filename: "index.html",
+    iconFile: <FaHtml5 className="text-[#e65100]" />,
   },
   {
     href: "/projects",
     icon: Code,
     label: "Progetti",
+    filename: "projects.json",
+    iconFile: <Braces className="text-[#f9a825] size-[16px]" />,
+  },
+  {
+    href: "/github",
+    icon: Github,
+    label: "Github",
+    filename: "github.md",
+    iconFile: <MdInfo className="text-[#42a5f5]" />,
   },
   {
     href: "/contact",
     icon: MessageCircle,
     label: "Contatti",
+    filename: "contact.css",
+    iconFile: <FaCss3 className="text-[#42a5f5]" />,
   },
-];
-
-const fileLink = [
   {
-    href: "/",
-    icon: <FaHtml5 className="text-[#e65100]" />,
-    name: "index.html",
+    href: "/about",
+    icon: CircleUserRound,
+    label: "Chi sono",
+    filename: "about.jsx",
+    iconFile: <FaReact className="text-[#0674b2]" />,
+  },
+  {
+    href: "/settings",
+    icon: Settings,
+    label: "Impostazioni",
   },
 ];
 
@@ -52,7 +65,7 @@ export const LeftMenu = ({ children }: { children: React.ReactNode }) => {
       <div className="bg-[var(--background)] w-full max-w-[48px] border border-[var(--border)] border-l-0">
         <div className="w-full h-full flex flex-col items-center justify-between">
           <ul>
-            {LinkMenuIcon.map((item, index) => (
+            {LinkMenuIcon.slice(0, 4).map((item, index) => (
               <li key={index}>
                 <Tooltip
                   content={item.label}
@@ -66,8 +79,8 @@ export const LeftMenu = ({ children }: { children: React.ReactNode }) => {
                   <Link
                     href={item.href}
                     className={`${classLink} ${pathname === item.href
-                        ? "!opacity-100 !border-l-[var(--primary)]"
-                        : ""
+                      ? "!opacity-100 !border-l-[var(--primary)]"
+                      : ""
                       }`}
                   >
                     <item.icon className="size-[24px]" />
@@ -77,63 +90,44 @@ export const LeftMenu = ({ children }: { children: React.ReactNode }) => {
             ))}
           </ul>
           <ul>
-            <li>
-              <Tooltip
-                content="Chi sono"
-                placement="right"
-                showArrow={true}
-                color="primary"
-                className="text-black !rounded-lg !px-2 !shadow-none !cursor-default"
-                delay={0}
-                closeDelay={0}
-              >
-                <Link
-                  href="/about"
-                  className={`${classLink} ${pathname === "/about"
+            {LinkMenuIcon.slice(4, 6).map((item, index) => (
+              <li key={index}>
+                <Tooltip
+                  content={item.label}
+                  placement="right"
+                  showArrow={true}
+                  color="primary"
+                  className="text-black !rounded-lg !px-2 !shadow-none !cursor-default"
+                  delay={0}
+                  closeDelay={0}
+                >
+                  <Link
+                    href={item.href}
+                    className={`${classLink} ${pathname === item.href
                       ? "!opacity-100 !border-l-[var(--primary)]"
                       : ""
-                    }`}
-                >
-                  <CircleUserRound className="size-[24px]" />
-                </Link>
-              </Tooltip>
-            </li>
-            <li>
-              <Tooltip
-                content="Impostazioni"
-                placement="right"
-                showArrow={true}
-                color="primary"
-                className="text-black !rounded-lg !px-2 !shadow-none !cursor-default"
-                delay={0}
-                closeDelay={0}
-              >
-                <Link
-                  href="/settings"
-                  className={`${classLink} ${pathname === "/settings"
-                      ? "!opacity-100 !border-l-[var(--primary)]"
-                      : ""
-                    }`}
-                >
-                  <Settings className="size-[24px]" />
-                </Link>
-              </Tooltip>
-            </li>
+                      }`}
+                  >
+                    <item.icon className="size-[24px]" />
+                  </Link>
+                </Tooltip>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
 
       {/* Menu file */}
-      <div className="bg-[var(--background)] border border-[var(--border)] lg:w-[200px] hidden lg:block">
+      <div className="bg-[var(--background)] lg:w-[200px] hidden lg:block ">
         <div className="w-full px-4 py-2">
           <p className="text-[11px] text-[var(--primary)] overflow-hidden whitespace-nowrap text-ellipsis cursor-default uppercase">Esplora risorse</p>
         </div>
         <ul>
-          {fileLink.map((item, index) => (
-            <li key={index} className="px-2">
-              <Link href={item.href} className="flex items-center justify-start gap-1">
-                {item.icon}
-                <p className="text-[13px] leading-none text-[var(--secondary)]">{item.name}</p>
+          {LinkMenuIcon.slice(0, 5).map((item, index) => (
+            <li key={index} className="">
+              <Link href={item.href} className={`flex items-center justify-start gap-1.5 px-4 py-1 ${pathname === item.href ? "bg-[var(--background-secondary)]" : ""}`}>
+                {item.iconFile}
+                <p className="text-[13px] leading-none text-[var(--secondary)]">{item.filename}</p>
               </Link>
             </li>
           ))}
