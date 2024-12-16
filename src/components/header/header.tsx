@@ -14,6 +14,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 
+import Link from "next/link";
 
 
 export const Header = () => {
@@ -35,10 +36,10 @@ export const Header = () => {
       body?.classList.toggle("overflow-hidden");
       ester?.classList.remove("hidden");
     } else {
-      setIsEsterEgg(true);
+      setIsEsterEgg(false);
       app?.classList.toggle("app-hide");
-      body?.classList.toggle("overflow-hidden");
       setTimeout(() => {
+        body?.classList.toggle("overflow-hidden");
         ester?.classList.add("hidden");
       }, 300);
     }
@@ -47,7 +48,9 @@ export const Header = () => {
   return (
     <header className="flex flex-row justify-between items-center p-2 px-4 h-[35px] bg-[var(--background)] border-b border-[var(--border)]">
       <div className="w-[52px] h-[20px]">
-        <LogoIcon fill="var(--primary)" className="h-full" />
+        <Link href="/">
+          <LogoIcon fill="var(--primary)" className="h-full" />
+        </Link>
       </div>
       <p className="text-xs text-primary">Andrea De Laurentis - Portfolio</p>
       <div className="h-full flex items-center gap-2">

@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="dark">
-      <body className="min-h-screen relative">
-        <div id="app" className="relative z-10">
+      <body className="relative">
+        <div id="app" className="min-h-[100dvh]">
           {children}
         </div>
         <Ester />
