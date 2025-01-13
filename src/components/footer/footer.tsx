@@ -34,14 +34,14 @@ export const Footer = () => {
           <Nextjs />
           <span>Powered by Next.js</span>
         </Link>
-        <button className="hidden md:flex items-center justify-center gap-1 mr-3">
+        <Link href="https://www.typescriptlang.org/" target="_blank" className="hidden md:flex items-center justify-center gap-1 mr-3">
           <Braces className="size-[14px]" />
           <span>Typescript JSX</span>
-        </button>
-        <button className="hidden md:flex items-center justify-center gap-1 mr-3">
+        </Link>
+        <Link href="https://prettier.io/" target="_blank" className="hidden md:flex items-center justify-center gap-1 mr-3">
           <CheckCheck className="size-[14px]" />
           <span>Prettier</span>
-        </button>
+        </Link>
         <button className="mr-3">
           <Bell className="size-[14px]" />
         </button>
